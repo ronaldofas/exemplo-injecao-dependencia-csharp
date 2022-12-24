@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exemplo-injecao-dependencia-csharp", "exemplo-injecao-dependencia-csharp\exemplo-injecao-dependencia-csharp.csproj", "{1A6DE205-F0C4-4688-8F1F-2DBDA97971E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A6DE205-F0C4-4688-8F1F-2DBDA97971E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6DE205-F0C4-4688-8F1F-2DBDA97971E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6DE205-F0C4-4688-8F1F-2DBDA97971E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A6DE205-F0C4-4688-8F1F-2DBDA97971E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D053894-E416-4DA2-88C9-BC5379D2A34D}
+	EndGlobalSection
+EndGlobal
