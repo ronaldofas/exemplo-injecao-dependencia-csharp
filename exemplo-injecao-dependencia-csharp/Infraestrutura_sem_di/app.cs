@@ -4,7 +4,7 @@
     {
         public void Start()
         {
-            var tela = new geradorDeTela();
+            var tela = new GeradorDeTelaService();
 
             string descisao = "0";
 
@@ -16,8 +16,8 @@
                  * Um dado é lançado 1000 vezes e o valor correspondente (valores válidos: 1 a 6) é anotado. Faça um
                  * programa que gere um vetor com os lançamentos (usando um gerador de números aleatórios como
                  * mostrado abaixo), e calcule e mostre quantas vezes cada um dos 6 números foi sorteado.
-                 * - Fazer um service para cálculos (gerar array com resultados, fazer contagem de resultados)
-                 * - Fazer um service para apresentação da tela (tela inicial, tela de resultado, tela de despedida)
+                 * - Fazer um service para cálculos (gerar array com resultados - ok, fazer contagem de resultados - ok)
+                 * - Fazer um service para apresentação da tela (tela inicial - ok, tela de resultado, tela de despedida)
                  * 
                  */
                 Console.Clear();

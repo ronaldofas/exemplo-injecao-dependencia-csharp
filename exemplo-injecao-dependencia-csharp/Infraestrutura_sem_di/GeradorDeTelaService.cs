@@ -1,6 +1,6 @@
 ﻿namespace exemplo_injecao_dependencia_csharp.Infraestrutura_sem_di
 {
-    public class geradorDeTela
+    public class GeradorDeTelaService
     {
         public string TelaPrincipal()
         {
