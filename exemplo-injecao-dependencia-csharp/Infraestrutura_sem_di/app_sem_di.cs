@@ -2,38 +2,28 @@
 {
     public class app_sem_di
     {
+        GeradorDeTelaService_sem_di _tela = new GeradorDeTelaService_sem_di();
+        LancadorDeDadosAleatoriosService_sem_di _lancador = new LancadorDeDadosAleatoriosService_sem_di();
+
         public void Start()
         {
-            var tela = new GeradorDeTelaService_sem_di();
-            
-
             string descisao = "0";
-
             while (descisao != "99")
             {
                 Console.Clear();
-                Console.WriteLine(tela.TelaPrincipal());
-                var inputDescisao = Console.ReadLine();
-                if (inputDescisao != null)
-                {
-                    descisao = inputDescisao;
-                } else {
-                    descisao = "0";
-                }
+                Console.WriteLine(_tela.TelaPrincipal());
+                descisao = SolicitarEValidarDescisao();
 
                 switch (descisao)
                 {
                     case "1":
-                        LancarDados(tela);
+                        LancarDados();
                         break;
                     case "2":
-                        Console.WriteLine("Função ainda não implementada, escolha outra opção");
-                        PedirComandoEAguardar();
+                        GeradorMegaSena();
                         break;
                     case "99":
-                        Console.Clear();
-                        Console.WriteLine(tela.TelaDeDespedida());
-                        PedirComandoEAguardar();
+                        MostrarDespedida();
                         break;
                     default:
                         break;
@@ -41,14 +31,42 @@
             }
         }
 
-        private static void LancarDados(GeradorDeTelaService_sem_di tela)
+        private static string SolicitarEValidarDescisao()
         {
-            var lancador = new LancadorDeDadosAleatoriosService_sem_di();
-            // Efetua lançamento dos dados
-            var lancamentos = lancador.LancaDadosAleatoriosNVezes(1000);
-            var resultados = lancador.ResultadoDosDados(lancamentos);
+            string descisao;
+            var inputDescisao = Console.ReadLine();
+            if (inputDescisao != null)
+            {
+                descisao = inputDescisao;
+            }
+            else
+            {
+                descisao = "0";
+            }
+
+            return descisao;
+        }
+
+        private void MostrarDespedida()
+        {
             Console.Clear();
-            Console.WriteLine(tela.TelaDeResultadoDosLancamentos(lancamentos.Count, resultados));
+            Console.WriteLine(_tela.TelaDeDespedida());
+            PedirComandoEAguardar();
+        }
+
+        private static void GeradorMegaSena()
+        {
+            Console.WriteLine("Função ainda não implementada, escolha outra opção");
+            PedirComandoEAguardar();
+        }
+
+        private void LancarDados()
+        {
+            // Efetua lançamento dos dados
+            var lancamentos = _lancador.LancaDadosAleatoriosNVezes(1000);
+            var resultados = _lancador.ResultadoDosDados(lancamentos);
+            Console.Clear();
+            Console.WriteLine(_tela.TelaDeResultadoDosLancamentos(lancamentos.Count, resultados));
             PedirComandoEAguardar();
         }
 

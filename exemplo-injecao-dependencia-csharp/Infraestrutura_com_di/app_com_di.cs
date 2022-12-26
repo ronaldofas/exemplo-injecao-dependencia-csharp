@@ -21,13 +21,7 @@ namespace exemplo_injecao_dependencia_csharp.Infraestrutura_com_di
             {
                 Console.Clear();
                 Console.WriteLine(Tela.TelaPrincipal());
-                var inputDescisao = Console.ReadLine();
-                if (inputDescisao != null)
-                {
-                    descisao = inputDescisao;
-                } else {
-                    descisao = "0";
-                }
+                descisao = SolicitarEValidarDescisao();
 
                 switch (descisao)
                 {
@@ -35,18 +29,44 @@ namespace exemplo_injecao_dependencia_csharp.Infraestrutura_com_di
                         LancarDados();
                         break;
                     case "2":
-                        Console.WriteLine("Função ainda não implementada, escolha outra opção");
-                        PedirComandoEAguardar();
+                        GeradorMegaSena();
                         break;
                     case "99":
-                        Console.Clear();
-                        Console.WriteLine(Tela.TelaDeDespedida());
-                        PedirComandoEAguardar();
+                        MostrarDespedida();
                         break;
                     default:
                         break;
                 }
             }
+        }
+
+        private static string SolicitarEValidarDescisao()
+        {
+            string descisao;
+            var inputDescisao = Console.ReadLine();
+            if (inputDescisao != null)
+            {
+                descisao = inputDescisao;
+            }
+            else
+            {
+                descisao = "0";
+            }
+
+            return descisao;
+        }
+
+        private void MostrarDespedida()
+        {
+            Console.Clear();
+            Console.WriteLine(Tela.TelaDeDespedida());
+            PedirComandoEAguardar();
+        }
+
+        private static void GeradorMegaSena()
+        {
+            Console.WriteLine("Função ainda não implementada, escolha outra opção");
+            PedirComandoEAguardar();
         }
 
         private void LancarDados()
