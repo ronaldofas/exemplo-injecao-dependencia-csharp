@@ -1,18 +1,26 @@
-﻿namespace exemplo_injecao_dependencia_csharp.Infraestrutura_sem_di
+﻿using exemplo_injecao_dependencia_csharp.Infraestrutura_com_di.Interfaces;
+
+namespace exemplo_injecao_dependencia_csharp.Infraestrutura_com_di
 {
-    public class app_sem_di
+    public class app_com_di
     {
+        private readonly ILancadorDeDadosAleatoriosService_com_di Lancador;
+        private readonly IGeradorDeTelaService_com_di Tela;
+
+        public app_com_di(ILancadorDeDadosAleatoriosService_com_di lancador, IGeradorDeTelaService_com_di tela)
+        {
+            Lancador = lancador;
+            Tela = tela;
+        }
+
         public void Start()
         {
-            var tela = new GeradorDeTelaService_sem_di();
-            
-
             string descisao = "0";
 
             while (descisao != "99")
             {
                 Console.Clear();
-                Console.WriteLine(tela.TelaPrincipal());
+                Console.WriteLine(Tela.TelaPrincipal());
                 var inputDescisao = Console.ReadLine();
                 if (inputDescisao != null)
                 {
@@ -24,7 +32,7 @@
                 switch (descisao)
                 {
                     case "1":
-                        LancarDados(tela);
+                        LancarDados();
                         break;
                     case "2":
                         Console.WriteLine("Função ainda não implementada, escolha outra opção");
@@ -32,7 +40,7 @@
                         break;
                     case "99":
                         Console.Clear();
-                        Console.WriteLine(tela.TelaDeDespedida());
+                        Console.WriteLine(Tela.TelaDeDespedida());
                         PedirComandoEAguardar();
                         break;
                     default:
@@ -41,14 +49,13 @@
             }
         }
 
-        private static void LancarDados(GeradorDeTelaService_sem_di tela)
+        private void LancarDados()
         {
-            var lancador = new LancadorDeDadosAleatoriosService_sem_di();
             // Efetua lançamento dos dados
-            var lancamentos = lancador.LancaDadosAleatoriosNVezes(1000);
-            var resultados = lancador.ResultadoDosDados(lancamentos);
+            List<int> lancamentos = Lancador.LancaDadosAleatoriosNVezes(1000);
+            Dictionary<int, int> resultados = Lancador.ResultadoDosDados(lancamentos);
             Console.Clear();
-            Console.WriteLine(tela.TelaDeResultadoDosLancamentos(lancamentos.Count, resultados));
+            Console.WriteLine(Tela.TelaDeResultadoDosLancamentos(lancamentos.Count, resultados));
             PedirComandoEAguardar();
         }
 

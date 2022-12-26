@@ -1,6 +1,8 @@
-﻿namespace exemplo_injecao_dependencia_csharp.Infraestrutura_sem_di
+﻿using exemplo_injecao_dependencia_csharp.Infraestrutura_com_di.Interfaces;
+
+namespace exemplo_injecao_dependencia_csharp.Infraestrutura_com_di
 {
-    public class LancadorDeDadosAleatoriosService_sem_di
+    public class LancadorDeDadosAleatoriosServiceComDi : ILancadorDeDadosAleatoriosService_com_di
     {
         public List<int> LancaDadosAleatoriosNVezes(int quantidade)
         {
