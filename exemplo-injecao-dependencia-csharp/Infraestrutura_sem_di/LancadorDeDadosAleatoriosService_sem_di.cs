@@ -1,6 +1,6 @@
 ﻿namespace exemplo_injecao_dependencia_csharp.Infraestrutura_sem_di
 {
-    public class LancadorDeDadosAleatorios
+    public class LancadorDeDadosAleatoriosService_sem_di
     {
         public static List<int> LancaDadosAleatoriosNVezes(int quantidade)
         {

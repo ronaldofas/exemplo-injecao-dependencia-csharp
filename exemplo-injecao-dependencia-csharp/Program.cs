@@ -7,7 +7,7 @@ namespace exemplo_injecao_dependencia
         public static void Main(String[] args)
         {
             // Método sem injeção de dependencia
-            var app = new app();
+            var app = new app_sem_di();
             app.Start();
         }
     }

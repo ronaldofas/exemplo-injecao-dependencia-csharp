@@ -1,6 +1,6 @@
 ﻿namespace exemplo_injecao_dependencia_csharp.Infraestrutura_sem_di
 {
-    public class GeradorDeTelaService
+    public class GeradorDeTelaService_sem_di
     {
         private string _delimitador = "=";
 
@@ -27,6 +27,19 @@
             for (int i = 1; i <= 6; i++)
                 if (resultados.ContainsKey(i)) tela += GeraLinhaDeResultado(i, resultados[i]);
             tela += AdicionaSaltosDeLinha(3);
+            tela += linhaDelimitadora();
+
+            return tela;
+        }
+
+        public string TelaDeDespedida()
+        {
+            string tela = "";
+
+            tela += linhaDelimitadora();
+            tela += AdicionaSaltosDeLinha(5);
+            tela += "     Obrigado por usar o sistema!";
+            tela += AdicionaSaltosDeLinha(5);
             tela += linhaDelimitadora();
 
             return tela;
