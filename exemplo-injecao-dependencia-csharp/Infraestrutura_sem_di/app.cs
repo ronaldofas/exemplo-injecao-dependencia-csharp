@@ -17,7 +17,7 @@
                  * programa que gere um vetor com os lançamentos (usando um gerador de números aleatórios como
                  * mostrado abaixo), e calcule e mostre quantas vezes cada um dos 6 números foi sorteado.
                  * - Fazer um service para cálculos (gerar array com resultados - ok, fazer contagem de resultados - ok)
-                 * - Fazer um service para apresentação da tela (tela inicial - ok, tela de resultado, tela de despedida)
+                 * - Fazer um service para apresentação da tela (tela inicial - ok, tela de resultado - ok, tela de despedida)
                  * 
                  */
                 Console.Clear();
@@ -33,9 +33,7 @@
                 switch (descisao)
                 {
                     case "1":
-                        // Efetua lançamento dos dados
-                        Console.WriteLine("A implementar");
-                        PedirComandoEAguardar();
+                        LancarDados(tela);
                         break;
                     case "2":
                         Console.WriteLine("Função ainda não implementada, escolha outra opção");
@@ -47,6 +45,16 @@
                         break;
                 }
             }
+        }
+
+        private static void LancarDados(GeradorDeTelaService tela)
+        {
+            // Efetua lançamento dos dados
+            var lancamentos = LancadorDeDadosAleatorios.LancaDadosAleatoriosNVezes(1000);
+            var resultados = LancadorDeDadosAleatorios.ResultadoDosDados(lancamentos);
+            Console.Clear();
+            Console.WriteLine(tela.TelaDeResultadoDosLancamentos(lancamentos.Count, resultados));
+            PedirComandoEAguardar();
         }
 
         private static void PedirComandoEAguardar()

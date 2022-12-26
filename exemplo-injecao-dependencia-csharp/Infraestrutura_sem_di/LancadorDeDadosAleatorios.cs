@@ -7,9 +7,9 @@
             List<int> resultado = new List<int>();
             Random random = new Random();
 
-            while(resultado.Count < quantidade - 1) 
+            while(resultado.Count < quantidade) 
             {
-                int valorObtido = random.Next(1, 6);
+                int valorObtido = random.Next(1, 7);
                 resultado.Add(valorObtido);
             }
             

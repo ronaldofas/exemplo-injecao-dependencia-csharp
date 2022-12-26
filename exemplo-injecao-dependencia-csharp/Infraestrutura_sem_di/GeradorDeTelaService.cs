@@ -2,17 +2,39 @@
 {
     public class GeradorDeTelaService
     {
+        private string _delimitador = "=";
+
         public string TelaPrincipal()
         {
             string tela = "";
-            tela += linhaAsteriscos();
+            tela += linhaDelimitadora();
             tela += AdicionaSaltosDeLinha(3);
             tela += GerarOpcoesDeMenu();
             tela += AdicionaSaltosDeLinha(3);
-            tela += linhaAsteriscos();
+            tela += linhaDelimitadora();
             tela += AdicionarLinhaDeDescisao();
 
             return tela;
+        }
+
+        public string TelaDeResultadoDosLancamentos(int quantidadeLancamentos, Dictionary<int, int> resultados)
+        {
+            string tela = "";
+            tela += linhaDelimitadora();
+            tela += AdicionaSaltosDeLinha(3);
+            tela += $"    Quantidade de lançamentos efetuados: {quantidadeLancamentos}\n";
+            tela += AdicionaSaltosDeLinha(1);
+            for (int i = 1; i <= 6; i++)
+                if (resultados.ContainsKey(i)) tela += GeraLinhaDeResultado(i, resultados[i]);
+            tela += AdicionaSaltosDeLinha(3);
+            tela += linhaDelimitadora();
+
+            return tela;
+        }
+
+        private string GeraLinhaDeResultado(int numeroDoDado, int quantidade)
+        {
+            return $"     Número {numeroDoDado} foi lançado {quantidade} vez(es).\n";
         }
 
         private static string GerarOpcoesDeMenu()
@@ -40,13 +62,13 @@
             return saltosDeLinha;
         }
 
-        private static string linhaAsteriscos()
+        private string linhaDelimitadora()
         {
             string linhaDeAsteriscos = "";
 
             while (linhaDeAsteriscos.Length < 59)
             {
-                linhaDeAsteriscos += '*';
+                linhaDeAsteriscos += _delimitador;
             }
 
             return linhaDeAsteriscos + "\n";
