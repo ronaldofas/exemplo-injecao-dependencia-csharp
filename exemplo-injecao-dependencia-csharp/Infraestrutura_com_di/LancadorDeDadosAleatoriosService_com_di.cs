@@ -9,12 +9,12 @@ namespace exemplo_injecao_dependencia_csharp.Infraestrutura_com_di
             List<int> resultado = new List<int>();
             Random random = new Random();
 
-            while(resultado.Count < quantidade) 
+            while (resultado.Count < quantidade)
             {
                 int valorObtido = random.Next(1, 7);
                 resultado.Add(valorObtido);
             }
-            
+
             return resultado;
         }
 

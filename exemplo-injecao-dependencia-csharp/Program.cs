@@ -16,7 +16,7 @@ namespace exemplo_injecao_dependencia
             container.Register<ILancadorDeDadosAleatoriosService_com_di, LancadorDeDadosAleatoriosServiceComDi>(Lifestyle.Singleton);
             container.Register<IGeradorDeTelaService_com_di, GeradorDeTelaService_com_di>(Lifestyle.Singleton);
             container.Register<app_com_di>();
-            
+
             // 3. Verify your configuration
             container.Verify();
         }
